@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxor Joias - Carrinho</title>
+<style>
+  /* Reset CSS */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    color: #111;
+    background-color: #f5f5f7;
+    padding-bottom: 60px;
+    padding-top: 60px;
+    margin: 0;
+  }
+
+  header {
+    background-color: #fff;
+    color: #111;
+    padding: 20px 0;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     z-index: 999;
+  }
+
+  header nav ul {
+    list-style: none;
+  }
+
+  header nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+
+  header nav ul li a {
+    text-decoration: none;
+    color: #111;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+  }
+
+  .cart-container {
+    max-width: 800px;
+    margin: 30px auto 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .cart-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .cart-item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    margin-bottom: 10px;
+  }
+
+  .cart-item-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .cart-item-price {
+    font-size: 16px;
+    color: #777;
+  }
+
+  .button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .button-container button {
+    background-color: #111;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+    flex: 1;
+    margin: 0 5px;
+  }
+
+  .cart .clean-cart-button {
+    background-color: #fff;
+    color: #111;
+    border: 1px solid #111;
+  }
+
+  .button-container button:hover {
+    background-color: #333;
+  }
+
+  footer {
+    background-color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    bottom: 0;
+    width: 100%;
+    font-family: 'Lato', sans-serif;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+  }
+
+  #checkout-form {
+      display: none;
+  }
+
+  #checkout-form button[type="submit"] {
+    background-color: #111;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+   .card-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px; 
+  }
+
+  .card {
+    width: 300px;
+    margin: 60px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+    color: #111;
+    font-family: 'Lato', sans-serif;
+    text-decoration: none;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  .card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .card p {
+    color: #777;
+  }
+
+  .card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+   .botao {
+  display:inline;
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #fffafa; 
+  color: #000000; 
+  text-decoration: none; 
+  border-radius: 5px; 
+  transition: background-color 0.3s;
+}
+
+  .botao:hover {
+  background-color: #cdcdcd; 
+}
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Lato&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html"><img src="diamond.png" alt="Luxor" style="height: 15px; width: 15px;"></a></li>
+        <li><a href="index2.html">Aneis</a></li>
+        <li><a href="index3.html">Colares</a></li>
+        <li><a href="index4.html">Pulseiras</a></li>
+        <li><a href="index5.html">Brincos</a></li>
+        <li><a href="index6.html">Sobre Nós</a></li>
+        <li><a href="index7.html"><img src="cart.png" alt="Carrinho" style="height: 15px; width: 15px;"></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="cart-container">
+    <h1 class="cart-title">Seu Carrinho</h1>
+    <div id="cart-items">
+      <!-- JavaScript will populate this list with cart items -->
+    </div>
+    <div class="button-container" id="button-container">
+      <button class="clean-cart-button" id="clean-cart-btn">Limpar Carrinho</button>
+      <button class="finish-purchase-btn" onclick="showCheckoutForm()">Finalizar Compra</button>
+    </div>
+    <div id="checkout-form">
+      <h2>Checkout</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required><br><br>
+        <button type="submit">Confirm Purchase</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Luxor Joias. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get the cart from localStorage
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  
+      let cartItemsContainer = document.getElementById('cart-items');
+      cartItemsContainer.innerHTML = '';
+  
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p>O seu carrinho está vazio</p>';
+      } else {
+        let totalPrice = 0;
+  
+        cart.forEach(function(item) {
+          let cartItem = document.createElement('div');
+          cartItem.classList.add('cart-item');
+          cartItem.innerHTML = `
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-price">Preço: R$ ${formatPrice(item.price)}</div>
+          `;
+          cartItemsContainer.appendChild(cartItem);
+  
+          totalPrice += item.price; // Summing the price of each item to the total
+        });
+  
+        let totalPriceElement = document.createElement('div');
+        totalPriceElement.classList.add('cart-item-total');
+        totalPriceElement.textContent = `Total: R$ ${formatPrice(totalPrice)}`;
+        cartItemsContainer.appendChild(totalPriceElement);
+      }
+  
+      function formatPrice(price) {
+        return price.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      }
+  
+      // Handle cleaning the cart
+      document.getElementById('clean-cart-btn').addEventListener('click', function() {
+    localStorage.removeItem('cart');
+    window.location.reload();
+      });
+  
+      // Handle checkout form submission
+      document.getElementById('checkout-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Generate QR code
+        generateQRCode();
+      });
+    });
+  
+    function showCheckoutForm() {
+      document.getElementById('checkout-form').style.display = 'block';
+      document.getElementById('button-container').style.display = 'none';
+    }
+  
+    function generateQRCode() {
+    // Display static QR code image
+    let qrCodeContainer = document.createElement('div');
+    qrCodeContainer.innerHTML = '<img src="QR.png" alt="QR Code">';
+    document.querySelector('.cart-container').appendChild(qrCodeContainer);
+
+  }
+  </script>
+</body>
+</html>
